@@ -1,7 +1,67 @@
-
 @import './root.css';
 
-
-body{
-    background-color: rgb(82, 87, 160);
+body, html {
+    height: 100%;
 }
+
+body {
+    background: var(--main-color);
+    background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+    font-family: 'Rubik',Arial;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    color: var(--white);
+}
+
+#login-side{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#hero-img{
+    background-image: url("/img/woman-on-phone.png") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#form-insert {
+    background-color: var(--white);
+    display: flex;
+    border-radius: 2rem;
+    flex-direction: column;
+    width: 40%;
+    padding: 4rem;
+    margin: 3rem;
+}
+
+#form-insert input {
+    padding: .2rem;
+    border-bottom: ;
+
+}
+
+.display-none {
+    display: none;
+}
+
+.display-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.display-center {
+    display: flex;
+    justify-content: center;
+}
+
