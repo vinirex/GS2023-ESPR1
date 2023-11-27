@@ -1,6 +1,6 @@
-*{
 
-}
+@import './root.css';
+
 
 body{
     background-color: rgb(82, 87, 160);
