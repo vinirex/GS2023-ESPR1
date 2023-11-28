@@ -1,18 +1,21 @@
 Users = []
-Admins = []
+loged_as = ''
 EPC = 0
 
 class UserID {
-    auth = 0;
+    auth = -1;
     constructor(name, password) {
         this.Name = name;
         this.Password = password;
-        this.IPC = EPC++;
+        this.EPC = EPC++;
     }
     authAdmin(){
+        if(this.auth == 0 ) { return }
         this.auth = 1
     }
     authUser(name, age, id, height, weight, biogender, bloodtype, vices, details) {
+        if (this.auth == 1 ) { return }
+        this.auth = 0
         this.name = name
         this.age = age
         this.id = id
@@ -26,6 +29,7 @@ class UserID {
         this.details = details;
     }
     scribeField(field, value) {
+        if (this.auth == 1 ) { return }
         if (field == 'name') { this.name = value }
         else if (field == 'age') { this.age = value }
         else if (field == 'id') { this.id = value }
@@ -94,8 +98,22 @@ async function validate(type, input) {
     }
 }
 async function createUser(username, password, name, age, id, height, weight, biogender, bloodtype, vices, details) {
-    Users.push(new UserID(username, password).authUser(name, age, id, height, weight, biogender, bloodtype, vices, details))
+    let tmp = new UserID(username, password);
+    tmp.authUser(name, age, id, height, weight, biogender, bloodtype, vices, details);
+    Users.push(tmp);
 }
 async function createAdmin(username, password) {
-    Admins.push(new UserID(username, password).authAdmin())
+    let tmp = new UserID(username, password);
+    tmp.authAdmin();
+    Users.push(tmp);
+}
+
+async function Login(username, password) {
+    for (let i=0;i<Users.length;i++) {
+        if (Users[i].name == username) {
+            if (Users[i].password == password) {
+                loged_as = Users[i]
+            }
+        }
+    }
 }
