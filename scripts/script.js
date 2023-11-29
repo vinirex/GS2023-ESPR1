@@ -113,6 +113,11 @@ async function Login(username, password) {
         if (Users[i].name == username) {
             if (Users[i].password == password) {
                 loged_as = Users[i]
+                if (Users[i].auth == 1) {
+                    adm = true;
+                } else {
+                    adm = false;
+                }
             }
         }
     }
