@@ -1,10 +1,10 @@
-Users = [];
+users = [];
 loged_as = '';
 EPC = 0;
 
-
-/*
-let user = document.querySelector('#user').value;
+const btn = document.querySelector('#btn');
+btn.addEventListener('click',validate);
+/*let user = document.querySelector('#user').value;
 let age = document.querySelector('#age').value;
 let id = document.querySelector('#id').value;
 let height = document.querySelector('#height').value;
@@ -13,8 +13,6 @@ let biogender = document.querySelector('#biogender').value;
 let bloodtype = document.querySelector('#bloodtype').value;
 let vices = document.querySelector('#vices').value;
 let details = document.querySelector('#details').value;
-const btn = document.querySelector('#btn');
-btn.addEventListener('click',validate);
 */
 class UserID {
     auth = -1;

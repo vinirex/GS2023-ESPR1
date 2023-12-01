@@ -62,20 +62,20 @@ h2{
 
 }
 
-#med-info{
-    display: flex;
-    align-items: center;
+#form-send{
+    width: 50%;
     background-color: var(--white);
+    display: flex;
     border-radius: 2rem;
-    width: 70%;
+    flex-direction: column;
     padding: 4rem;
 }
 
-#med-info div {
+.form-input {
     width: 100%;
 }
 
-#med-info div input{
+.form-input input,select{
     padding: .2rem;
     display: inline-block;
     width: 100%;
@@ -83,6 +83,8 @@ h2{
     border-bottom: 2px solid var(--main-color);
     outline: none;
 }
+
+
 
 .button{
     color: var(--white);
@@ -112,6 +114,5 @@ h2{
 .display-center {
     display: flex;
     justify-content: center;
-    flex-direction: column;
 }
 
