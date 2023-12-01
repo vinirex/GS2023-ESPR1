@@ -4,16 +4,7 @@ EPC = 0;
 
 const btn = document.querySelector('#btn');
 btn.addEventListener('click',validate);
-/*let user = document.querySelector('#user').value;
-let age = document.querySelector('#age').value;
-let id = document.querySelector('#id').value;
-let height = document.querySelector('#height').value;
-let weight = document.querySelector('#weight').value;
-let biogender = document.querySelector('#biogender').value;
-let bloodtype = document.querySelector('#bloodtype').value;
-let vices = document.querySelector('#vices').value;
-let details = document.querySelector('#details').value;
-*/
+
 class UserID {
     auth = -1;
     constructor(name, password) {
@@ -139,3 +130,56 @@ async function Login(username, password) {
              `
     }
 }*/
+
+//variaveis para a visualisação dos prontuários
+const list = document.querySelector('#med-list');
+let infoMed = "";
+//botões para mostrar formulario e prontuários
+const sndForm = document.querySelector('#send')
+sndForm.addEventListener('click', sendToList);
+const regist = document.querySelector('#register');
+regist.addEventListener('click', showForm);
+
+//função para mostrar formulario de Cadastro
+function showForm() {
+    let form = document.querySelector('#med-info');
+    form.classList.toggle('display-none');
+    form.classList.toggle('display-center');
+}
+
+//Fução para mostrar o Prontuário
+users.forEach(entry => {
+    infoMed += `<div class="row">
+                         <div>
+                             ${entry.user}
+                         </div>
+                         <div">
+                             ${entry.age}
+                         </div>
+                         <div>
+                             ${entry.height}
+                         </div>
+                         <div>
+                             ${entry.weight}
+                         </div>
+                     </div>`
+})
+list.innerHTML = infoMed
+
+//manda o usuário para o "BANCO DE DADOS" / array 
+function sendToList() {
+    let name = document.querySelector('#name').value;
+    let age = document.querySelector('#age').value;
+    let id = document.querySelector('#id').value;
+    let height = document.querySelector('#height').value;
+    let weight = document.querySelector('#weight').value;
+    let biogender = document.querySelector('#biogender').value;
+    let bloodtype = document.querySelector('#bloodtype').value;
+    let vices = document.querySelector('#vices').value;
+    let details = document.querySelector('#details').value;
+
+    users.push({
+        name, age, id, height, weight, biogender, bloodtype, vices, details
+    })
+    console.log(users)
+}
