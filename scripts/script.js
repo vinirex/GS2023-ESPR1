@@ -132,6 +132,15 @@ async function Login(username, password) {
 }
 
 
+//mostra os botões de cadastro e envio somente depois do login
+function displayBtns(){
+
+    sndForm.classList.toggle('display-none');
+    sndForm.classList.toggle('display-center');
+    regist.classList.toggle('display-none');
+    regist.classList.toggle('display-center');
+}
+
 //função para mostrar formulario de Cadastro
 function showForm() {
     let form = document.querySelector('#med-info');
