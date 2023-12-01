@@ -1,19 +1,21 @@
-Users = []
-loged_as = ''
-EPC = 0
+Users = [];
+loged_as = '';
+EPC = 0;
 
 
-let user = document.querySelector('#user').value
-let age = document.querySelector('#age').value
-let id = document.querySelector('#id').value
-let height = document.querySelector('#height').value
-let weight = document.querySelector('#weight').value
-let biogender = document.querySelector('#biogender').value
-let bloodtype = document.querySelector('#bloodtype').value
-let vices = document.querySelector('#vices').value
-let details = document.querySelector('#details').value
-//const btn = document.querySelector('#btn');
-//btn.addEventListener('click',validate);
+/*
+let user = document.querySelector('#user').value;
+let age = document.querySelector('#age').value;
+let id = document.querySelector('#id').value;
+let height = document.querySelector('#height').value;
+let weight = document.querySelector('#weight').value;
+let biogender = document.querySelector('#biogender').value;
+let bloodtype = document.querySelector('#bloodtype').value;
+let vices = document.querySelector('#vices').value;
+let details = document.querySelector('#details').value;
+const btn = document.querySelector('#btn');
+btn.addEventListener('click',validate);
+*/
 class UserID {
     auth = -1;
     constructor(name, password) {
@@ -21,12 +23,12 @@ class UserID {
         this.Password = password;
         this.EPC = EPC++;
     }
-    authAdmin(){
-        if(this.auth == 0 ) { return }
+    authAdmin() {
+        if (this.auth == 0) { return }
         this.auth = 1
     }
     authUser(name, age, id, height, weight, biogender, bloodtype, vices, details) {
-        if (this.auth == 1 ) { return }
+        if (this.auth == 1) { return }
         this.auth = 0
         this.name = name
         this.age = age
@@ -41,7 +43,7 @@ class UserID {
         this.details = details;
     }
     scribeField(field, value) {
-        if (this.auth == 1 ) { return }
+        if (this.auth == 1) { return }
         if (field == 'name') { this.name = value }
         else if (field == 'age') { this.age = value }
         else if (field == 'id') { this.id = value }
@@ -58,52 +60,43 @@ async function validate(type, input) {
     //let input = document.querySelector('#user').value;
     //console.log(input);
     var value = input
-    if(type == 'email')
-    {
-        if(value.length() > 5 && value.includes('@') && value.includes('.')) { return value }
+    if (type == 'email') {
+        if (value.length() > 5 && value.includes('@') && value.includes('.')) { return value }
     }
-    if(type == 'str')
-    {
-        if(value.length() > 5) { return value }
+    if (type == 'str') {
+        if (value.length() > 5) { return value }
     }
-    if(type == 'int')
-    {
-        if(value > 0) { return value }
+    if (type == 'int') {
+        if (value > 0) { return value }
     }
-    if(type == 'biogender')
-    {
-        if(value.toLowerCase() != "male" || value.toLowerCase() != "female") { return 'N/A' }
+    if (type == 'biogender') {
+        if (value.toLowerCase() != "male" || value.toLowerCase() != "female") { return 'N/A' }
         return value;
     }
-    if(type == 'bloodtype')
-    {
+    if (type == 'bloodtype') {
         if (value.includes('O')) {
-            if(value.includes('+'))
-            {
+            if (value.includes('+')) {
                 return 'O+'
             } else {
                 return 'O-'
             }
         }
         if (value.includes('AB')) {
-            if(value.includes('+'))
-            {
+            if (value.includes('+')) {
                 return 'AB+'
             } else {
                 return 'AB-'
             }
         }
         if (value.includes('B')) {
-            if(value.includes('+'))
-            {
+            if (value.includes('+')) {
                 return 'B+'
             } else {
                 return 'B-'
             }
         }
         if (value.includes('A')) {
-            if(value.includes('+'))
-            {
+            if (value.includes('+')) {
                 return 'A+'
             } else {
                 return 'A-'
@@ -123,7 +116,7 @@ async function createAdmin(username, password) {
 }
 
 async function Login(username, password) {
-    for (let i=0;i<Users.length;i++) {
+    for (let i = 0; i < Users.length; i++) {
         if (Users[i].name == username) {
             if (Users[i].password == password) {
                 loged_as = Users[i]
@@ -137,9 +130,14 @@ async function Login(username, password) {
     }
 }
 
-function showForm(){
+/*function showForm() {
     let medList = document.querySelector('#med-list')
-    for(let i=0;i<Users.length;i++){
-        
+    for (let i = 0; i < Users.length; i++) {
+        medList.innerHTML = `
+            <div>
+                <p>nome</p>
+                <p>`+Users[i].name`</p>
+            </div>
+             `
     }
-}
+}*/
