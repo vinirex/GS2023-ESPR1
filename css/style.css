@@ -71,6 +71,11 @@ h2{
     padding: 4rem;
 }
 
+#med-list{
+    display: flex;
+    justify-content: center;
+}
+
 .form-input {
     width: 100%;
 }
@@ -84,7 +89,14 @@ h2{
     outline: none;
 }
 
-
+.show-all{
+    width: 50%;
+    background-color: var(--white);
+    display: flex;
+    border-radius: 2rem;
+    flex-direction: column;
+    padding: 4rem;
+}
 
 .button{
     color: var(--white);

@@ -1,9 +1,23 @@
+//variaveis para a visualisação dos prontuários
+const list = document.querySelector('#med-list');
+let infoMed = "";
+//botões para mostrar formulario e prontuários
+const sndForm = document.querySelector('#send')
+sndForm.addEventListener('click', sendToList);
+const regist = document.querySelector('#register');
+regist.addEventListener('click', showForm);
+//Botão para ver prontuários
+const viewAll = document.querySelector('#viewAll');
+viewAll.addEventListener('click', showAll);
+//botão para "authenticar o usuário"
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', displayBtns);
+
 users = [];
 loged_as = '';
 EPC = 0;
 
-const btn = document.querySelector('#btn');
-btn.addEventListener('click',validate);
+
 
 class UserID {
     auth = -1;
@@ -46,8 +60,6 @@ class UserID {
     }
 }
 async function validate(type, input) {
-    //let input = document.querySelector('#user').value;
-    //console.log(input);
     var value = input
     if (type == 'email') {
         if (value.length() > 5 && value.includes('@') && value.includes('.')) { return value }
@@ -119,26 +131,6 @@ async function Login(username, password) {
     }
 }
 
-/*function showForm() {
-    let medList = document.querySelector('#med-list')
-    for (let i = 0; i < Users.length; i++) {
-        medList.innerHTML = `
-            <div>
-                <p>nome</p>
-                <p>`+Users[i].name`</p>
-            </div>
-             `
-    }
-}*/
-
-//variaveis para a visualisação dos prontuários
-const list = document.querySelector('#med-list');
-let infoMed = "";
-//botões para mostrar formulario e prontuários
-const sndForm = document.querySelector('#send')
-sndForm.addEventListener('click', sendToList);
-const regist = document.querySelector('#register');
-regist.addEventListener('click', showForm);
 
 //função para mostrar formulario de Cadastro
 function showForm() {
@@ -147,13 +139,14 @@ function showForm() {
     form.classList.toggle('display-center');
 }
 
-//Fução para mostrar o Prontuário
+//Fução para mostrar os Prontuários atualiza com o botão
+function showAll(){
 users.forEach(entry => {
-    infoMed += `<div class="row">
+    infoMed += `<div class="show-all">
                          <div>
-                             ${entry.user}
+                             ${entry.name}
                          </div>
-                         <div">
+                         <div>
                              ${entry.age}
                          </div>
                          <div>
@@ -162,12 +155,27 @@ users.forEach(entry => {
                          <div>
                              ${entry.weight}
                          </div>
+                         <div>
+                             ${entry.biogender}
+                         </div>
+                         <div>
+                             ${entry.bloodtype}
+                         </div>
+                         <div>
+                             ${entry.vices}
+                         </div>
+                         <div>
+                             ${entry.details}
+                         </div>
+                         
                      </div>`
 })
 list.innerHTML = infoMed
+}
 
-//manda o usuário para o "BANCO DE DADOS" / array 
+//manda as informaçãoes de usuário no formulário para o "BANCO DE DADOS" / array 
 function sendToList() {
+    let clear = document.querySelectorAll('.form-input input');
     let name = document.querySelector('#name').value;
     let age = document.querySelector('#age').value;
     let id = document.querySelector('#id').value;
@@ -178,8 +186,19 @@ function sendToList() {
     let vices = document.querySelector('#vices').value;
     let details = document.querySelector('#details').value;
 
+    clear.forEach(input => {
+        validate(input.type,input.value)
+    });
     users.push({
         name, age, id, height, weight, biogender, bloodtype, vices, details
-    })
-    console.log(users)
+    });
+    // Clearing the input fields
+    clear.forEach(input => {
+        if (input.tagName === 'INPUT') {
+            input.value = '';
+        }
+    });
+
+    console.log(users);
+    
 }
