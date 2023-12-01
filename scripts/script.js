@@ -2,6 +2,10 @@ Users = []
 loged_as = ''
 EPC = 0
 
+//const btn = document.querySelector('#btn');
+let user = document.querySelector('#user').value
+let age = document.querySelector('#age').value
+//btn.addEventListener('click',validate);
 class UserID {
     auth = -1;
     constructor(name, password) {
@@ -43,6 +47,8 @@ class UserID {
     }
 }
 async function validate(type, input) {
+    //let input = document.querySelector('#user').value;
+    //console.log(input);
     var value = input
     if(type == 'email')
     {

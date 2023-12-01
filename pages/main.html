@@ -19,8 +19,8 @@
         <section id="form-test">
             <form id="form-insert">
                 <h2>Entre na sua conta</h2>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" placeholder="Usuário..." required>
+                <label for="nome">Email:</label>
+                <input type="email" name="user" id="user" placeholder="Usuário..." required>
 
                 <label for="password">Senha:</label>
                 <input type="password" name="password" placeholder="Senha...">
@@ -36,11 +36,11 @@
     <section id="med-info" class="display-center">
         <div class="display-center">
             <div>
-                <label for="">name</label>
+                <label for="">nome</label>
                 <input type=" text" id="name">
             </div>
             <div>
-                <label for="">age</label>
+                <label for="">idade</label>
                 <input type="text" id="age">
             </div>
             <div>
@@ -48,16 +48,19 @@
                 <input type="text" id="id">
             </div>
             <div>
-                <label for="">height</label>
+                <label for="">altura</label>
                 <input type="text" id="height">
             </div>
             <div>
-                <label for="">weight</label>
+                <label for="">peso</label>
                 <input type="text" id="weight">
             </div>
             <div>
-                <label for="">biogender</label>
-                <input type="text" id="biogender">
+                <label for="">genero</label>
+                <select name="biogender" id="biogender">
+                    <option value="male">M</option>
+                    <option value="female">F</option>
+                </select>
             </div>
             <div>
                 <label for="">bloodtype</label>
@@ -73,6 +76,8 @@
             </div>
             <button type="button" class="button">Enviar</button>
         </div>
+    </section>
+    <section id="med-list">
     </section>
 
     <script src="../scripts/script.js"></script>
