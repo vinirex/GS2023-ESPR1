@@ -2,9 +2,17 @@ Users = []
 loged_as = ''
 EPC = 0
 
-//const btn = document.querySelector('#btn');
+
 let user = document.querySelector('#user').value
 let age = document.querySelector('#age').value
+let id = document.querySelector('#id').value
+let height = document.querySelector('#height').value
+let weight = document.querySelector('#weight').value
+let biogender = document.querySelector('#biogender').value
+let bloodtype = document.querySelector('#bloodtype').value
+let vices = document.querySelector('#vices').value
+let details = document.querySelector('#details').value
+//const btn = document.querySelector('#btn');
 //btn.addEventListener('click',validate);
 class UserID {
     auth = -1;
@@ -126,5 +134,12 @@ async function Login(username, password) {
                 }
             }
         }
+    }
+}
+
+function showForm(){
+    let medList = document.querySelector('#med-list')
+    for(let i=0;i<Users.length;i++){
+        
     }
 }
