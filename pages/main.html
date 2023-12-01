@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Med - Login</title>
 </head>
+
 <body>
     <header>
         <h1>Prontuário Online</h1>
 
-    <section id="form-test">
-        <form id="form-insert">
-            <h2>Entre na sua conta</h2>
-            <label form="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" placeholder="Usuário..." required />
+        <section id="form-test">
+            <form id="form-insert">
+                <h2>Entre na sua conta</h2>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Usuário..." required>
 
-            <label form="password">Senha:</label>
-            <input type="password" name="password" placeholder="Senha...">
-            <button type="button" id="btn">Entrar</button>
-        </form>
-        <h1 id="text">
+                <label for="password">Senha:</label>
+                <input type="password" name="password" placeholder="Senha...">
+                <button type="button" id="btn" class="button">Entrar</button>
+            </form>
+            <h1 id="text">
 
-        </h1>
+            </h1>
+        </section>
+        <button type="button" class="button">Cadastrar Usuário</button>
+    </header>
+
+    <section id="med-info" class="display-center">
+        <div class="display-center">
+            <div>
+                <label for="">name</label>
+                <input type=" text" id="name">
+            </div>
+            <div>
+                <label for="">age</label>
+                <input type="text" id="age">
+            </div>
+            <div>
+                <label for="">id</label>
+                <input type="text" id="id">
+            </div>
+            <div>
+                <label for="">height</label>
+                <input type="text" id="height">
+            </div>
+            <div>
+                <label for="">weight</label>
+                <input type="text" id="weight">
+            </div>
+            <div>
+                <label for="">biogender</label>
+                <input type="text" id="biogender">
+            </div>
+            <div>
+                <label for="">bloodtype</label>
+                <input type="text" id="bloodtype">
+            </div>
+            <div>
+                <label for="">vices</label>
+                <input type="text" id="vices">
+            </div>
+            <div>
+                <label for="">details</label>
+                <input type="text" id="details">
+            </div>
+            <button type="button" class="button">Enviar</button>
+        </div>
     </section>
-</header>
-<section id="med-info" class="display-center">
-
-</section>
 
     <script src="../scripts/script.js"></script>
 </body>
+
 </html>

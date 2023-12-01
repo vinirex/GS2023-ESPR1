@@ -62,7 +62,29 @@ h2{
 
 }
 
-#btn{
+#med-info{
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 2rem;
+    width: 70%;
+    padding: 4rem;
+}
+
+#med-info div {
+    width: 100%;
+}
+
+#med-info div input{
+    padding: .2rem;
+    display: inline-block;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--main-color);
+    outline: none;
+}
+
+.button{
     color: var(--white);
     background-color: var(--main-color);
     border: none;
@@ -71,7 +93,7 @@ h2{
     margin: 1rem;
 }
 
-#btn:hover{
+.button:hover{
     background-color: black;
     cursor: pointer;
     transition: all .5s ease-out;
@@ -90,5 +112,6 @@ h2{
 .display-center {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
