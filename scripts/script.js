@@ -1,20 +1,53 @@
+//Usuário: Qualquer e-mail
+//Senha teste: senha1234 
+
 //variaveis para a visualisação dos prontuários
 const list = document.querySelector('#med-list');
 let infoMed = "";
 //botões para mostrar formulario e prontuários
 const sndForm = document.querySelector('#send')
-sndForm.addEventListener('click', sendToList);
 const regist = document.querySelector('#register');
-regist.addEventListener('click', showForm);
 //Botão para ver prontuários
 const viewAll = document.querySelector('#viewAll');
-viewAll.addEventListener('click', showAll);
-//botão para "authenticar o usuário"
+//Autenticar usuário
 const btn = document.querySelector('#btn');
-btn.addEventListener('click', displayBtns);
 
-users = [];
-loged_as = '';
+
+sndForm.addEventListener('click', sendToList);
+regist.addEventListener('click', showForm);
+viewAll.addEventListener('click', showAll);
+btn.addEventListener('click', authUser);
+
+const users = [{
+    age
+        :
+        "43",
+    biogender
+        :
+        "masculino",
+    bloodtype
+        :
+        "O-",
+    details
+        :
+        "Saudável, Problemas no Joelho",
+    height
+        :
+        "1,90",
+    id
+        :
+        "1",
+    name
+        :
+        "Adagoberto",
+    vices
+        :
+        "Cafeina",
+    weight
+        :
+        "89"
+}];
+var loged_as = '';
 EPC = 0;
 
 
@@ -71,7 +104,7 @@ async function validate(type, input) {
         if (value > 0) { return value }
     }
     if (type == 'biogender') {
-        if (value.toLowerCase() != "male" || value.toLowerCase() != "female") { return 'N/A' }
+        if (value.toLowerCase() != "masculino" || value.toLowerCase() != "feminino") { return 'N/A' }
         return value;
     }
     if (type == 'bloodtype') {
@@ -108,20 +141,20 @@ async function validate(type, input) {
 async function createUser(username, password, name, age, id, height, weight, biogender, bloodtype, vices, details) {
     let tmp = new UserID(username, password);
     tmp.authUser(name, age, id, height, weight, biogender, bloodtype, vices, details);
-    Users.push(tmp);
+    users.push(tmp);
 }
 async function createAdmin(username, password) {
     let tmp = new UserID(username, password);
     tmp.authAdmin();
-    Users.push(tmp);
+    users.push(tmp);
 }
 
 async function Login(username, password) {
     for (let i = 0; i < Users.length; i++) {
-        if (Users[i].name == username) {
-            if (Users[i].password == password) {
-                loged_as = Users[i]
-                if (Users[i].auth == 1) {
+        if (users[i].name == username) {
+            if (usernamesers[i].password == password) {
+                loged_as = users[i]
+                if (users[i].auth == 1) {
                     adm = true;
                 } else {
                     adm = false;
@@ -131,56 +164,92 @@ async function Login(username, password) {
     }
 }
 
+//verificação de Usuário
+function authUser() {
+    let auth = 'y';
+    let username = document.querySelector('#user').value;
+    let password = document.querySelector('#password').value;
 
+    if (username.length > 5 && username.includes('@') && username.includes('.')) {
+        console.log('ok');
+        auth +='e';
+    }
+    else {
+        console.error('Deu erro mlk');
+        auth += 'wfwefw';
+    }
+    if (password == 'senha1234'){
+        auth +='s';
+    }
+    else{
+        auth +='eqweq'
+    }
+    if(auth == 'yes'){
+        displayBtns()
+    }
+    else{
+        alert('Usuário ou senha inválidos')
+    }
+
+    console.log(auth)
+};
 //mostra os botões de cadastro e envio somente depois do login
-function displayBtns(){
+function displayBtns() {
 
     sndForm.classList.toggle('display-none');
     sndForm.classList.toggle('display-center');
     regist.classList.toggle('display-none');
     regist.classList.toggle('display-center');
-}
+};
 
 //função para mostrar formulario de Cadastro
 function showForm() {
     let form = document.querySelector('#med-info');
     form.classList.toggle('display-none');
     form.classList.toggle('display-center');
-}
+};
 
 //Fução para mostrar os Prontuários atualiza com o botão
-function showAll(){
-users.forEach(entry => {
-    infoMed += `<div class="show-all">
-                         <div>
+function showAll() {
+    infoMed = "";
+    users.forEach(entry => {
+        infoMed += `<div class="show-all">
+                         <div class="textd">
+                            <p>Nome:</p>
                              ${entry.name}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Idade:</p>
                              ${entry.age}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Altura:</p>
                              ${entry.height}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Peso:</p>
                              ${entry.weight}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Genero:</p>
                              ${entry.biogender}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Tipo Sanguineo:</p>
                              ${entry.bloodtype}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Vicios:</p>
                              ${entry.vices}
                          </div>
-                         <div>
+                         <div class="textd">
+                            <p>Detalhes:</p>
                              ${entry.details}
                          </div>
-                         
                      </div>`
-})
-list.innerHTML = infoMed
-}
+    })
+    list.innerHTML = infoMed
+};
 
 //manda as informaçãoes de usuário no formulário para o "BANCO DE DADOS" / array 
 function sendToList() {
@@ -196,7 +265,7 @@ function sendToList() {
     let details = document.querySelector('#details').value;
 
     clear.forEach(input => {
-        validate(input.type,input.value)
+        validate(input.type, input.value)
     });
     users.push({
         name, age, id, height, weight, biogender, bloodtype, vices, details
@@ -209,5 +278,5 @@ function sendToList() {
     });
 
     console.log(users);
-    
-}
+
+};

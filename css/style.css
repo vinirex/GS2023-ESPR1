@@ -24,10 +24,15 @@ header {
 
 h1{
     color: var(--white);
+    padding: 1rem;
 }
 
 h2{
     width: 100%;
+}
+
+p{
+    font-weight: bold;
 }
 
 #login-side{
@@ -74,6 +79,14 @@ h2{
 #med-list{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textd{
+    font-size: 1rem;
+    font-family: 'Rubik',Arial;
+    padding: .5rem;
 }
 
 .form-input {
