@@ -24,10 +24,15 @@ header {
 
 h1{
     color: var(--white);
+    padding: 1rem;
 }
 
 h2{
     width: 100%;
+}
+
+p{
+    font-weight: bold;
 }
 
 #login-side{
@@ -59,10 +64,54 @@ h2{
     border: 0;
     border-bottom: 2px solid var(--main-color);
     outline: none;
-    
+
 }
 
-#btn{
+#form-send{
+    width: 50%;
+    background-color: var(--white);
+    display: flex;
+    border-radius: 2rem;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+#med-list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textd{
+    font-size: 1rem;
+    font-family: 'Rubik',Arial;
+    padding: .5rem;
+}
+
+.form-input {
+    width: 100%;
+}
+
+.form-input input,select{
+    padding: .2rem;
+    display: inline-block;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--main-color);
+    outline: none;
+}
+
+.show-all{
+    width: 50%;
+    background-color: var(--white);
+    display: flex;
+    border-radius: 2rem;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+.button{
     color: var(--white);
     background-color: var(--main-color);
     border: none;
@@ -71,9 +120,10 @@ h2{
     margin: 1rem;
 }
 
-#btn:hover{
+.button:hover{
     background-color: black;
     cursor: pointer;
+    transition: all .5s ease-out;
 }
 
 .display-none {
